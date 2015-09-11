@@ -1,0 +1,4 @@
+.vagrant/
+app/vendor
+app/bin
+.idea/
