@@ -1,5 +1,5 @@
 <?php
-namespace SilexDemo\subscriptionform\app\web;
+namespace johi\SilexDemo\app\web;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../src/controllers/ApplicationController.php';
@@ -13,7 +13,7 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
-use SilexDemo\subscriptionform\app\controller\ApplicationController;
+use johi\SilexDemo\app\controller\ApplicationController;
 
 $application = new Application();
 $application['debug'] = true;
@@ -36,7 +36,7 @@ $application['application.controller'] = $application->share(function () use ($a
     return new ApplicationController();
 });
 $application->match('/', 'application.controller:subscribe');
-$application->get('/summary', 'application.controller:summary');
+$application->get('/subscription-confirmation', 'application.controller:subscriptionConfirmation');
 $application['swiftmailer.options'] = array(
     'host' => 'localhost',
     'port' => '1025',

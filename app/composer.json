@@ -1,10 +1,10 @@
 {
-  "name": "dr/subscriptionform",
+  "name": "johi/SilexDemo",
   "description": "Demo application",
   "version": "0.1.0-dev",
   "authors": [
     {
-      "name": "Johan Lerche Schulz",
+      "name": "johi",
       "email": "johan.schulz@gmail.com",
       "role": "Developer"
     }
@@ -31,12 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "dr\\subscriptionform\\": "src"
+      "johi\\SilexDemo\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Test\\dr\\subscriptionform\\": "test"
+      "Test\\johi\\SilexDemo\\": "test"
     }
   }
 }

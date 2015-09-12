@@ -1,6 +1,6 @@
 <?php
 
-namespace SilexDemo\subscriptionform\app\controller;
+namespace johi\SilexDemo\app\controller;
 
 use Monolog\Handler\StreamHandler;
 use Silex\Application;
@@ -52,7 +52,7 @@ class ApplicationController
             $logger->addInfo(sprintf("User '%s' subscribed with email '%s'.", $subscriber['name'],
                 $subscriber['email']));
             #making a subquery
-            $subRequest = Request::create('/summary', 'GET', $subscriber);
+            $subRequest = Request::create('/subscription-confirmation', 'GET', $subscriber);
             $application['session']->set('subscriber', $subscriber);
             return $application->handle($subRequest, HttpKernelInterface::SUB_REQUEST, false);
         }
@@ -64,9 +64,9 @@ class ApplicationController
      * @param Request $request
      * @return mixed
      */
-    public function summary(Application $application, Request $request)
+    public function subscriptionConfirmation(Application $application, Request $request)
     {
         $subscriber = $application['session']->get('subscriber');
-        return $application['twig']->render('summary.twig', array('subscriber' => $subscriber));
+        return $application['twig']->render('subscription-confirmation.twig', array('subscriber' => $subscriber));
     }
 }
