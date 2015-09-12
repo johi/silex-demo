@@ -16,7 +16,6 @@ the given email as well as it should write this action to a log file.
 * It should be able to install on a vagrant machine using chef solo provisioner
 
 ## prerequisites
-The project is set up to be installed on a vagrant machine which is provisioned by 
 In order to run this demo you have to vagrant and virtualbox installed. On my Ubuntu 14.04 i did:
 
     sudo apt-get install vagrant virtualbox-4.3
@@ -32,4 +31,8 @@ Clone the repo and run vagrant up:
 In order to see the app in your browser visit [http://127.0.0.1:8081](http://127.0.0.1:8081)
 
 In order to see that a mail has been sent visit [http://127.0.0.1:8085](http://127.0.0.1:8085)
+
+Since the local app folder is mounted in the virtual machine and due to simplicity in evaluating the demo the subscription.log file is placed in <installdir>/silex-demo/app/log/subscription.log
+ 
+Enjoy the demo, I hope you like it :-)
 

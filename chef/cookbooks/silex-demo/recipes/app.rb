@@ -35,3 +35,17 @@ execute 'composer-update' do
     cwd '/srv/silex-demo/app'
     command 'composer update'
 end
+
+directory '/srv/silex-demo/app/log' do
+    owner 'vagrant'
+    group 'vagrant'
+    mode '0755'
+    action :create
+end
+
+file '/srv/silex-demo/app/log/subscription.log' do
+    action :create_if_missing
+    owner 'vagrant'
+    group 'vagrant'
+    mode '0777'
+end

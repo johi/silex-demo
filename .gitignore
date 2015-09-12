@@ -2,3 +2,4 @@
 app/vendor
 app/bin
 .idea/
+log/
