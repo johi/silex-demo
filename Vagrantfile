@@ -77,7 +77,6 @@ Vagrant.configure("2") do |config|
   #   puppet.manifest_file  = "kdchef.pp"
   # end
   #config.omnibus.chef_version = :latest
-  config.omnibus.chef_version = "12.3"
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding 

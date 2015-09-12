@@ -28,11 +28,11 @@ class ApplicationController
                     new Assert\NotBlank(),
                     new Assert\Length(array('min' => self::MIN_NAME_LENGTH, 'max' => self::MAX_NAME_LENGTH))
                 ),
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Dit navn')
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Your name')
             ))
             ->add('email', 'email', array(
                 'constraints' => array(new Assert\Email()),
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Din e-mail adresse')
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Your e-mail adress')
             ))
             ->getForm();
         $form->handleRequest($request);
