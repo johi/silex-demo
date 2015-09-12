@@ -36,7 +36,7 @@ class ApplicationController
             ))
             ->getForm();
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isValid() && is_null($application['session']->get('subscriber'))) {
             $subscriber = $form->getData();
             #emailing a confirmation message
             $message = \Swift_Message::newInstance()
@@ -52,10 +52,11 @@ class ApplicationController
             $logger->addInfo(sprintf("User '%s' subscribed with email '%s'.", $subscriber['name'],
                 $subscriber['email']));
             #making a subquery
-            $subRequest = Request::create('/subscription-confirmation', 'GET', $subscriber);
+            $subRequest = Request::create('/subscription-confirmation', 'GET', array('subscriber' => $subscriber));
             $application['session']->set('subscriber', $subscriber);
             return $application->handle($subRequest, HttpKernelInterface::SUB_REQUEST, false);
         }
+        $application['session']->remove('subscriber');
         return $application['twig']->render('subscribe.twig', array('form' => $form->createView()));
     }
 
@@ -66,7 +67,7 @@ class ApplicationController
      */
     public function subscriptionConfirmation(Application $application, Request $request)
     {
-        $subscriber = $application['session']->get('subscriber');
+        $subscriber  = $request->get('subscriber');
         return $application['twig']->render('subscription-confirmation.twig', array('subscriber' => $subscriber));
     }
 }
