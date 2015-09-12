@@ -1,6 +1,6 @@
 <?php
 
-namespace silex-demo\subscriptionform\app\controller;
+namespace SilexDemo\subscriptionform\app\controller;
 
 use Monolog\Handler\StreamHandler;
 use Silex\Application;

@@ -1,6 +1,5 @@
 <?php
-
-namespace dr\subscriptionform\app\web;
+namespace SilexDemo\subscriptionform\app\web;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../src/controllers/ApplicationController.php';
@@ -14,7 +13,7 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
-use dr\subscriptionform\app\controller\ApplicationController;
+use SilexDemo\subscriptionform\app\controller\ApplicationController;
 
 $application = new Application();
 $application['debug'] = true;
