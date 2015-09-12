@@ -1,0 +1,42 @@
+{
+  "name": "dr/subscriptionform",
+  "description": "Demo application",
+  "version": "0.1.0-dev",
+  "authors": [
+    {
+      "name": "Johan Lerche Schulz",
+      "email": "johan.schulz@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "symfony/config": "v2.6.6",
+    "symfony/yaml": "v2.6.6",
+    "silex/silex": "v1.2.4",
+    "twig/twig": "v1.18.1",
+    "symfony/monolog-bundle": "v2.7.1",
+    "symfony/twig-bridge": "v2.7.0",
+    "symfony/form": "v2.7.0",
+    "symfony/validator": "v2.7.0",
+    "symfony/security-csrf": "v2.7.0",
+    "swiftmailer/swiftmailer": "v5.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.6.6"
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "autoload": {
+    "psr-4": {
+      "dr\\subscriptionform\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\dr\\subscriptionform\\": "test"
+    }
+  }
+}
