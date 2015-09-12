@@ -8,14 +8,16 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu-14.04-amd64-vbox"
+  ##config.vm.box = "ubuntu-14.04-amd64-vbox"
+  config.vm.box = "ubuntu/trusty64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box"
+  ##config.vm.box_url = "https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box"
  
   config.vm.provider "virtualbox" do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.memory = 2048
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
   # config.vm.provider :virtualbox do |vb|
   #   # Don't boot with headless mode
@@ -45,8 +47,10 @@ Vagrant.configure("2") do |config|
   # computers to access the VM, whereas host only networking does not.
 
   #-- USE THE FOLLOWING TO ACCESS THE SERVER IN YOUR BROWSER, E.G. http://127.0.0.1:8081
-  config.vm.network :forwarded_port, host: 8081, guest: 80 
-  config.vm.network :forwarded_port, host: 8085, guest: 1080
+  #config.vm.network :forwarded_port, host: 8081, guest: 80
+  #config.vm.network :forwarded_port, host: 8085, guest: 1080
+  config.vm.network "forwarded_port", guest: 80, host: 8081
+  config.vm.network "forwarded_port", guest: 1080, host: 8085
   config.vm.synced_folder "./app", "/srv/silex-demo/app"
 
   # Share an additional folder to the guest VM. The first argument is
