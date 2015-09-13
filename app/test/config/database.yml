@@ -1,0 +1,9 @@
+"test": {driver:mysql, host:127.0.0.1, database:mdb_integration, user:mdbuser, pass:mdbpassword, port:3306}
+"nonexisting": {driver:mysql, host:localhost, database:nonexistant, user:mdb, pass:mdb, port:3306}
+"missingdriver": {host:localhost, database:mdb, user:mdb, pass:mdb, port:3306}
+"missinghost": {driver:mysql, database:mdb, user:mdb, pass:mdb, port:3306}
+"missingdb": {driver:mysql, host:localhost, user:mdb, pass:mdb, port:3306}
+"missinguser": {driver:mysql, host:localhost, database:mdb, pass:mdb, port:3306}
+"missingpass": {driver:mysql, host:localhost, database:mdb, user:mdb, port:3306}
+"missingport": {driver:mysql, host:localhost, database:mdb_integration, user:mdbuser, pass:mdbpassword}
+"dev": {host:"a band of horses"}
