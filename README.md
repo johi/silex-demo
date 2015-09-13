@@ -11,7 +11,6 @@ the given email as well as it should write this action to a log file.
 * It should be well structured
 * It should be conform to PSR-1 and PSR-2 coding standards
 * It should be using composer to manage dependencies
-* It should contain test using PHPUnit
 * Input should be validated using Symfony validator component
 * It should be able to install on a vagrant machine using chef solo provisioner
 
