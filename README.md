@@ -3,7 +3,7 @@ A small demo of putting together a lightweight mvc application based on the micr
 ## description
 The main use case to be solved is a simple subscription form where one can enter a name and an email address. When the user has subscribed on the page, 
 she is sent to a confirmation page where the entered details are shown. In conjunction with the subscription there should be sent a confirmation to 
-the given email as well as it should write this action to a log file.
+the given.
 
 ## criteria for development of the application
 * It should use Twig for the HTML part
@@ -11,7 +11,10 @@ the given email as well as it should write this action to a log file.
 * It should be well structured
 * It should be conform to PSR-1 and PSR-2 coding standards
 * It should be using composer to manage dependencies
-* It should contain test using PHPUnit
+* It should contain a unit tested model component (and supporting classes) using PHPUnit
+* The model should throw errors on unexpected input
+* Errors from the model should be logged to an error.log
+* The controller part should support routing for error pages, and handle errors thrown from model - controller interaction
 * Input should be validated using Symfony validator component
 * It should be able to install on a vagrant machine using chef solo provisioner
 
