@@ -14,27 +14,27 @@
     <link href="{{ app.request.basepath }}/css/subscribe.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <div class="navigation">
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Silex Demo Application</a>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
-    {% block javascripts %}{% endblock %}
+<!-- Navigation -->
+<div class="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Silex Demo Application</a>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+{% block javascripts %}{% endblock %}
 </body>
 </html>

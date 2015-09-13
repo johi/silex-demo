@@ -43,7 +43,8 @@ class ApplicationController
                 ->setSubject('Confirmation of your subscription')
                 ->setFrom(array('noreply@example.com' => 'Subscription Service'))
                 ->setTo($subscriber['email'])
-                ->setBody(sprintf('Dear %s, this is a confirmation that you are now subscribe...', $subscriber['name']));
+                ->setBody(sprintf('Dear %s, this is a confirmation that you are now subscribe...',
+                    $subscriber['name']));
             $application['mailer']->send($message);
             #logging the subscription
             #should be directly translatable to a MonologServiceProvider using Silex's built in service
@@ -54,9 +55,11 @@ class ApplicationController
             #making a subquery
             $subRequest = Request::create('/subscription-confirmation', 'GET', array('subscriber' => $subscriber));
             $application['session']->set('subscriber', $subscriber);
+
             return $application->handle($subRequest, HttpKernelInterface::SUB_REQUEST, false);
         }
         $application['session']->remove('subscriber');
+
         return $application['twig']->render('subscribe.twig', array('form' => $form->createView()));
     }
 
@@ -67,7 +70,8 @@ class ApplicationController
      */
     public function subscriptionConfirmation(Application $application, Request $request)
     {
-        $subscriber  = $request->get('subscriber');
+        $subscriber = $request->get('subscriber');
+
         return $application['twig']->render('subscription-confirmation.twig', array('subscriber' => $subscriber));
     }
 }
