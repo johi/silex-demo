@@ -3,7 +3,7 @@ A small demo of putting together a lightweight mvc application based on the micr
 ## description
 The main use case to be solved is a simple subscription form where one can enter a name and an email address. When the user has subscribed on the page, 
 she is sent to a confirmation page where the entered details are shown. In conjunction with the subscription there should be sent a confirmation to 
-the given.
+the given email.
 
 ## criteria for development of the application
 * It should use Twig for the HTML part
