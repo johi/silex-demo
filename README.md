@@ -15,9 +15,16 @@ the given email as well as it should write this action to a log file.
 * It should be able to install on a vagrant machine using chef solo provisioner
 
 ## prerequisites
-In order to run this demo you have to have [vagrant](https://www.vagrantup.com/) and [virtualbox](https://www.virtualbox.org/) installed. On my Ubuntu 14.04 i did:
+In order to run this demo you have to have [vagrant](https://www.vagrantup.com/) and [virtualbox](https://www.virtualbox.org/) installed. ~~On my Ubuntu 14.04 i did:~~
 
-    sudo apt-get install vagrant virtualbox-4.3
+    ~~sudo apt-get install vagrant virtualbox-4.3~~
+
+On Ubuntu 16.04 i did:
+
+    sudo apt install virtualbox
+
+And I installed vagrant 1.9.2 from this url: [https://www.vagrantup.com/downloads.html](https://www.vagrantup.com/downloads.html)
+
 ## installation
 The installation will attempt to forward ports 8081 and 8085 to the vagrant box, if needed this can be edited in the Vagrantfile.
 Clone the repo and run vagrant up:
