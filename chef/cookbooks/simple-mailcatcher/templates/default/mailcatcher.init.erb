@@ -1,0 +1,81 @@
+#!/bin/bash
+
+PID_FILE=/var/run/mailcatcher.pid
+NAME=mailcatcher
+PROG="/opt/chef/embedded/bin/mailcatcher"
+USER=<%= node['mailcatcher']['user'] %>
+GROUP=<%= node['mailcatcher']['group'] %>
+
+start() {
+    echo -n "Starting MailCatcher"
+    if start-stop-daemon --stop --quiet --pidfile $PID_FILE --signal 0
+    then
+        echo " already running."
+        exit
+    fi
+    start-stop-daemon \
+        --start \
+        --pidfile $PID_FILE \
+        --make-pidfile \
+        --background \
+        --exec $PROG \
+        --user $USER \
+        --group $GROUP \
+        --chuid $USER \
+        -- \
+        --foreground \
+        --http-ip=0.0.0.0 \
+        --http-port=1080 \
+        --smtp-port=1025 \
+        --smtp-ip=0.0.0.0
+
+    echo "."
+    return $?
+}
+
+stop() {
+    echo -n "Stopping MailCatcher"
+    start-stop-daemon \
+        --stop \
+        --oknodo \
+        --pidfile $PID_FILE
+    echo "."
+    return $?
+}
+
+restart() {
+    stop
+    sleep 1s
+    start
+}
+
+status() {
+    echo -n "MailCatcher is"
+    if start-stop-daemon --stop --quiet --pidfile $PID_FILE --signal 0
+    then
+        echo " running."
+        exit 0
+    else
+        echo " stopped."
+        exit 1
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    status)
+        status
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+esac

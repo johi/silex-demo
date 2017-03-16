@@ -91,7 +91,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "chef/cookbooks"
     chef.add_recipe "apt"
-    chef.add_recipe "chef-mailcatcher"
+    chef.add_recipe "simple-mailcatcher"
     chef.add_recipe "silex-demo::git"
     chef.add_recipe "silex-demo::php"
     chef.add_recipe "silex-demo::nginx"
