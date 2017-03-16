@@ -17,7 +17,7 @@ the given email as well as it should write this action to a log file.
 ## prerequisites
 In order to run this demo you have to have [vagrant](https://www.vagrantup.com/) and [virtualbox](https://www.virtualbox.org/) installed. ~~On my Ubuntu 14.04 i did:~~
 
-    ~~sudo apt-get install vagrant virtualbox-4.3~~
+~~sudo apt-get install vagrant virtualbox-4.3~~
 
 On Ubuntu 16.04 i did:
 
